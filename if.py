@@ -14,7 +14,7 @@ if a<0:
 
 #if-else
 b=int(input("Enter another value:"))
-if (b==0):
+if (b%2==0):
     print("Even")
 else:
     print("Odd")
