@@ -51,18 +51,4 @@ if t=='yes':
             break
         if score>=100:
             score=score-dice
-            if score==95:
-                if dice==6:
-                    print("Can't move.")
-            if score==96:
-                if (dice==6) or (dice==5):
-                    print("Can't move.")
-            if score==97:
-                if (dice==6) or (dice==5) or (dice==4):
-                    print("Can't move.")
-            if score==98:
-                if (dice==6) or (dice==5) or (dice==4) or (dice==3):
-                     print("Can't move.")
-            if score==99:
-                if (dice==6) or (dice==5) or (dice==4) or (dice==3) or (dice==2):
-                    print("Can't move.")
+            print("Can't move.")
