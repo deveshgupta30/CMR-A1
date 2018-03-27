@@ -6,10 +6,10 @@ pir=MotionSensor(4)
 time.sleep(3)
 if pir.motion_detected:
 	print("Motion detected!")
-	consumer_key= 'IrQcPnoAwMMoxeXaXMzzvR72E'
-	consumer_secret= 'cDZxcCxJIviqf4DvSKdDHwIOeeNjlAG5TSIBTvWFXqdqvB38xc'
-	access_token= '967252345133457409-7V7tTvuBQZd1KBThsLwb4X7dSgyZXu7'
-	access_token_secret= '0z2cYXWWDa211EDeu0BLyvJLQ1BFlheUZrLWj00jacmSJ'
+	consumer_key= ''
+	consumer_secret= ''
+	access_token= ''
+	access_token_secret= ''
 	auth=tweepy.OAuthHandler(consumer_key,consumer_secret)
 	auth.set_access_token(access_token, access_token_secret)
 
@@ -20,5 +20,5 @@ if pir.motion_detected:
   print("pic taken")
   api.update_with_media(img, status="Can this world be more complex?")
   print("Uploaded")
-else
-	print("Eh! No Motion detected!")
+else:
+print("Eh! No Motion detected!")
