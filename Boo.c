@@ -1,118 +1,100 @@
 #include <stdio.h>
-#define max 10
-int top1, top2, arr[max];
-void push();
-void pop();
-void display();
-void main()
+#define SIZE 10
+int ar[SIZE];
+int top1=-1;
+int top2=SIZE;
+void push_stack1(int data)
 {
-intch;
-top1=b1=-1,top2=b2=max-1/2;
-
-do
-{
-printf(“\n 1:push\n 2:pop\n 3:display\n 4:exit\n choice:”);
-scanf(“%d”, &ch);
-switch (ch)
-{
-case 1:push();
-break;
-case 2:pop();
-break;
-case 3:display();
-break;
-case 4:printf(“exiting from program\n”);
-break;
-default:printf(“wrong choice\n”);
-break;
+	if (top1<top2-1)
+	{
+		ar[++top1]=data;
+	}
+	else
+	{
+		printf("Stack Full! Cannot Push\n");
+	}
 }
-}while(ch!=4);
-}
-void push()
+void push_stack2(int data)
 {
-int x, ch;
-printf(“enter a no \n”);
-scanf(“%d”,&x);
-
-printf(“\n press 1 to push in stack1 or press 2 for stack2:”);
-scanf(“%d”,&ch);
-if(ch==1)
-{
-if(top1==b2)
-{
-printf(“stack overflow \n”);
-return;
+	if(top1<top2-1)
+	{
+		ar[--top2]=data;
+	}
+	else
+	{
+		printf("Stack Full! Cannot Push\n");
+	}
 }
-else
-arr[++top1]=x;
-}
-if(ch==2)
+void pop_stack1()
 {
-if(top2==n=1)
+	if (top1>=0)
+	{
+		int popped_value=ar[top1--];
+		printf ("%d is being popped from Stack 1\n",popped_value);
+	}
+	else
+	{
+		printf ("Stack Empty! Cannot Pop\n");
+	}
+}
+void pop_stack2()
 {
-printf(“stack overflow \n”);
-return;
+	if (top2<SIZE)
+	{
+		int popped_value=ar[top2++];
+		printf ("%d is being popped from Stack 2\n", popped_value);
+	}
+	else
+	{
+		printf ("Stack Empty! Cannot Pop\n");
+	}
 }
-else
-arr[++top1]=x;
-}
-}
-void pop()
+void print_stack1()
 {
-inty,ch;
-printf(“\n press 1 to pop from stack1 or press 2 for stack2″);
-scanf(“%d”,&ch);
-if(ch==1)
-{
-if(top1==-1)
-{
-printf(“stack underflow\n”);
-return;
+	int i;
+	for (i = top1; i >= 0; --i)
+	{
+		printf ("%d ", ar[i]);
+	}
+	printf ("\n");
 }
-y=arr[top1];
-arr[top1--]=0;
-}
-else
+void print_stack2 ()
 {
-if(top2==b2)
+	int i;
+	for (i = top2; i < SIZE; ++i)
+	{
+		printf ("%d ", ar[i]);
+	}
+	printf ("\n");
+}
+int main()
 {
-
-printf(“stack underflow\n”);
-return;
-}
-y=arr[top2];
-arr[top2--]=0;
-}
-printf(“\n%d element is successfully poped from stack \n”, y);
-return;
-}
-
-void display()
-{
-inti;
-if (top1 == -1)
-{
-printf(“stack 1 is empty \n”);
-}
-else
-{
-printf(“elements of Stack 1 are : \n”);
-for (i = 0; i<= top1; i++)
-{
-printf(“%d\n”,arr[i]);
-}
-}
-if (top2 == b2)
-{
-printf(“stack 2 is empty \n”);
-}
-else
-{
-printf(“elements of Stack 2 are : \n”);
-for (i =b2+1; i<=top2; i++)
-{
-printf(“%d\n”,arr[i]);
-}
-}
-return ;
+	int ar[SIZE];
+	int i,n;
+	int num_of_ele;
+	printf("Enter thenumber of elemenmts you want:");
+	scanf("%d",&n);
+	printf ("We can push a total of 10 values\n");
+	for (i = 1; i <= n; ++i)
+	{
+		push_stack1 (i);
+		printf ("Value Pushed in Stack 1 is %d\n", i);
+	}
+	for (i = 1; i <= 4; ++i)
+	{
+		push_stack2 (i);
+		printf ("Value Pushed in Stack 2 is %d\n", i);
+	}
+	print_stack1 ();
+	print_stack2 ();
+	printf ("Pushing Value in Stack 1 is %d\n", 11);
+	push_stack1 (11);
+	num_of_ele = top1 + 1;
+	while (num_of_ele)
+	{
+		pop_stack1 ();
+		--num_of_ele;
+	}
+	pop_stack1 ();
+	return 0;
 }
